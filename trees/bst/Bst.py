@@ -55,7 +55,7 @@ class Bst:
             else:
                 self._root = self._root._right
 
-        return self._root
+        return self._root._key
 
     def rsearch(self, key):
         return self._rsearch(self._root, key)

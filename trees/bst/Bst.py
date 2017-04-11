@@ -44,7 +44,7 @@ class Bst:
         
         if root is not None:
             self._inorder(root._left, ret)
-            ret.append(root)
+            ret.append(root._key)
             self._inorder(root._right, ret)
 
     def search(self, key):

@@ -36,14 +36,16 @@ class Bst:
             correctPosition._right = node
 
     def inorder(self):
-        self._inorder(self._root)
+        ret = []
+        self._inorder(self._root, ret)
+        return ret
 
-    def _inorder(self, root):
-
+    def _inorder(self, root, ret):
+        
         if root is not None:
-            self._inorder(root._left)
-            print(root, end=" ")
-            self._inorder(root._right)
+            self._inorder(root._left, ret)
+            ret.append(root)
+            self._inorder(root._right, ret)
 
     def search(self, key):
 

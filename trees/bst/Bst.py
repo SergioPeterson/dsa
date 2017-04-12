@@ -54,21 +54,11 @@ class Bst:
                 self._root = self._root._left
             else:
                 self._root = self._root._right
+        
+        if self._root is not None:
+            return self._root
 
-        return self._root._key
-
-    def rsearch(self, key):
-        return self._rsearch(self._root, key)
-
-    def _rsearch(self, root, key):
-
-        if root is None or key == root._key:
-            return root
-
-        if key < root._key:
-            return self._rsearch(root._left, key)
-        else:
-            return self._rsearch(root._right, key)
+        return Node.BstNode(None)
 
     def minimum(self):
 
@@ -102,10 +92,10 @@ class Bst:
 
     def successor(self, key):
 
-        node = self._rsearch(self._root, key)
+        node = self.search(key)
 
         if node is None:
-            raise AttributeError('key: Not found')
+            return None
         if node._right is not None:
             return self._minimum(node._right)
 
@@ -118,10 +108,10 @@ class Bst:
 
     def predecessor(self, key):
 
-        node = self._rsearch(self._root, key)
+        node = self.search(key)
 
         if node is None:
-            raise AttributeError('key: Not found')
+            return None
         if node._left is not None:
             return self._maximum(node._left)
 
@@ -145,9 +135,9 @@ class Bst:
 
     def delete(self, key):
 
-        node = self.search(self._root, key)
-        if node is None:
-            raise AttributeError('key: Not found')
+        node = self.search(key)
+        if node._key is None:
+            return Node.BstNode(None)
 
         if node._left is None:
             self._transplant(node, node._right)

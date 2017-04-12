@@ -48,16 +48,15 @@ class Bst:
             self._inorder(root._right, ret)
 
     def search(self, key):
-
-        while self._root is not None and key != self._root._key:
-            if key < self._root._key:
-                self._root = self._root._left
+        root = self._root
+        while root is not None and key != root._key:
+            if key < root._key:
+                root = root._left
             else:
-                self._root = self._root._right
+                root = root._right
         
-        if self._root is not None:
-            return self._root
-
+        if root is not None:
+            return root
         return Node.BstNode(None)
 
     def minimum(self):
@@ -138,21 +137,30 @@ class Bst:
         node = self.search(key)
         if node._key is None:
             return Node.BstNode(None)
-
-        if node._left is None:
-            self._transplant(node, node._right)
-        elif node._right is None:
-            self._transplant(node, node._left)
+        
+        # leaf case
+        if node._left is None and node._right is None:
+            if node._p._right is not None:
+                if node._p._right._key == node._key:
+                    inode._p._right = None
+            else:
+                node._p._left = None
         else:
-            minimum = self.minimum(node._right)
 
-            if minimum._p._key != node._key:
-                self._transplant(minimum, minimum._right)
-                minimum._right = node._right
-                minimum._right._p = minimum
+            if node._left is None:
+                self._transplant(node, node._right)
+            elif node._right is None:
+                self._transplant(node, node._left)
+            else:
+                minimum = self._minimum(node._right)
+            
+                if minimum._p._key != node._key:
+                    self._transplant(minimum, minimum._right)
+                    minimum._right = node._right
+                    minimum._right._p = minimum
 
-            self._transplant(node, minimum)
-            minimum._left = node._left
-            minimum._left._p = minimum
+                self._transplant(node, minimum)
+                minimum._left = node._left
+                minimum._left._p = minimum
 
 # Bst.py

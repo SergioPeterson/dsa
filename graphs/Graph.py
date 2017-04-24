@@ -8,6 +8,7 @@ class Graph:
     def __init__(self, V):
         """
         Constructor responsible to initialize the Graph structure
+        # Graph based on 0-index array (e.g Graph(3) == V{0, 1, 2})
 
         Args:
             param1: V is the number of vertices of the Graph
@@ -17,7 +18,7 @@ class Graph:
         """
         
         try:
-            self._V = V + 1 # better dealing with index
+            self._V = V # better dealing with index
             self._adj = [[] for i in range(self._V)]
         except TypeError:
             pass
@@ -94,6 +95,12 @@ class Graph:
             if len(v) > max:
                 max = len(v)
         return max
+
+    def len(self):
+        """
+        Method responsible for returning the length (# of vertices)
+        """
+        return self._V
 
 
 # Graph.py

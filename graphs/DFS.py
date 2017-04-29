@@ -8,7 +8,7 @@ class DFS:
 
         Args:
             param1: The whole graph to be explored using DFS
-            param2: s is the initial node where BFS starts
+            param2: s is the initial node where DFS starts
         
         Raises:
             TypeError: s is not an integer
@@ -23,7 +23,7 @@ class DFS:
 
     def _dfs(self, graph, v):
         """
-        BFS algorithm itself
+        DFS algorithm itself
         """
         try:
             self._marked[v] = True

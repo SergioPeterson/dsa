@@ -1,5 +1,8 @@
+import sys
+sys.path.append('..')
+
 import unittest
-from Bst import *
+from trees.Bst import Bst
 
 class TestBst(unittest.TestCase):
     

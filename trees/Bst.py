@@ -1,9 +1,9 @@
 
 #
-# Copyright (c) 2016 Luis Alves
+# Author: Luis Alves - 2016
 #
 
-import BstNode as Node
+import trees.BstNode as Node
 
 
 class Bst:

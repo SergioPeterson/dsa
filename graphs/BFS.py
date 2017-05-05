@@ -1,5 +1,5 @@
 
-import Graph
+from graphs.Graph import Graph
 
 class BFS:
 

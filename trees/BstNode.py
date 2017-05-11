@@ -1,8 +1,4 @@
 
-#
-# Copyright (c) 2016 Luis Alves
-#
-
 class BstNode:
 
     def __init__(self, key):

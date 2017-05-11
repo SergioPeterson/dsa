@@ -1,8 +1,4 @@
 
-#
-# Author: Luis Alves
-#
-
 class Graph:
 
     def __init__(self, V):
@@ -101,6 +97,5 @@ class Graph:
         Method responsible for returning the length (# of vertices)
         """
         return self._V
-
 
 # Graph.py

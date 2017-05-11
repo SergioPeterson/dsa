@@ -40,3 +40,5 @@ class ConnectedComponent:
         Method responsible for returning the length (# of CC)
         """
         return self._count
+
+# ConnectedComponent.py

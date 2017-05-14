@@ -41,6 +41,47 @@ class WeightedGraph:
         except (TypeError, IndexError):
             pass
             
+    def __getitem__(self, v):
+        """
+        Magic method that return the list of adjacent vertices to v
+
+        Args:
+            param1: v is the correspondent vertice
+        
+        Raises:
+            TypeError: v is not an integer
+            IndexError: v is out of bounds
+        """
+        
+        try:
+            adj_list = []
+            for edge in self._adj[v]:
+                adj = edge.get_vertices()
+                if adj[0] is not v:
+                    adj_list.append(adj[0])
+                else:
+                    adj_list.append(adj[1])
+            return adj_list
+        
+        except (TypeError, IndexError):
+            pass
+
+    def get_edges(self, v):
+        """
+        Magic method that return the list of adjacent edges to v
+
+        Args:
+            param1: v is the correspondent vertice
+        
+        Raises:
+            TypeError: v is not an integer
+            IndexError: v is out of bounds
+        """
+        try:
+            return self._adj[v]
+        except (TypeError, IndexError):
+            pass
+
     def len(self):
         """
         Method responsible for returning the length (# of vertices)

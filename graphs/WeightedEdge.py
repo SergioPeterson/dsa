@@ -15,22 +15,11 @@ class WeightedEdge:
         self._v = v
         self._w = w
     
-    def __getitem__(self):
+    def get_weight(self):
         """
         Magic method that returns the weight of the edge
-
-        Args:
-            param1: v is the correspondent vertice
-        
-        Raises:
-            TypeError: v is not an integer
-            IndexError: v is out of bounds
         """
-        
-        try:
-            return self._weight
-        except (TypeError, IndexError):
-            pass
+        return self._weight
 
     def get_vertices(self):
         return [self._v, self._w]

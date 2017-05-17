@@ -16,6 +16,7 @@ class WeightedGraph:
         try:
             self._V = V
             self._adj = [[] for i in range(self._V)]
+            self._edges = {} # edges of two given vertices
         except TypeError:
             pass
 
@@ -37,6 +38,8 @@ class WeightedGraph:
             edge = WeightedEdge(v, w, weight)
             self._adj[v].append(edge)
             self._adj[w].append(edge)
+            self._edges[(v, w)] = edge
+            self._edges[(w, v)] = edge
 
         except (TypeError, IndexError):
             pass
@@ -68,7 +71,7 @@ class WeightedGraph:
 
     def get_edges(self, v):
         """
-        Magic method that return the list of adjacent edges to v
+        Magic method that returns the list of adjacent edges to v
 
         Args:
             param1: v is the correspondent vertice
@@ -79,6 +82,12 @@ class WeightedGraph:
         """
         try:
             return self._adj[v]
+        except (TypeError, IndexError):
+            pass
+
+    def get_edge(self, v, w):
+        try:
+           return self._edges[(v, w)]
         except (TypeError, IndexError):
             pass
 

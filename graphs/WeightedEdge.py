@@ -22,6 +22,9 @@ class WeightedEdge:
         return self._weight
 
     def get_vertices(self):
+        """
+        Returns the two vertices associated with that edge
+        """
         return [self._v, self._w]
 
 # WeightedEdge.py

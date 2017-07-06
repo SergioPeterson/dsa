@@ -6,7 +6,7 @@ class DBScan:
 
     def __init__(self, points, eps, min_points):
         self._points = points
-        cluster = 0 # initial cluster
+        self._clusters = 0 # initial clusters
         for point in self._points:
             if point.is_visited():
                 continue
@@ -15,10 +15,9 @@ class DBScan:
             if len(neighbors_point) < min_points:
                 point.set_cluster(-1) # a noise point
             else:
-                cluster = cluster + 1
+                self._clusters = self._clusters + 1
                 self.expand_cluster(point, neighbors_point, 
-                                    cluster, eps, min_points)
-    
+                                    self._clusters, eps, min_points)
     def expand_cluster(self, point, neighbors_points, 
                                     cluster, eps, min_points):
         point.set_cluster(cluster)
@@ -42,6 +41,12 @@ class DBScan:
                 neighbors.append(p)
         return neighbors
     
-    def get_points(self):
-        return self._points
+    def get_clusters(self):
+        clusters = [[] for i in range(0, self._clusters)]
+        for point in self._points:
+            #print(point.get_values(), " = ", point.get_cluster())
+            if (point.get_cluster() != -1):
+                clusters[point.get_cluster() - 1].append(point)
+        return clusters
+
 # DBScan.py

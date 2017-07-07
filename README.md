@@ -5,5 +5,5 @@ semesters and internships. Feel free to use as you like.
 
 Disclaimer: Despite the Unit tests done, some of them might still contain bugs.
 
-## Speaking of which, foun one?
+## Speaking of which, found one?
  * Clone or fork and send me a pull request, thanks!

@@ -1,9 +1,9 @@
 # Data Structure and Algorithms in Python
 
-This repository has some of the DS and algorithms I implemented throughout the
+This repository has some of the data structures and algorithms I implemented throughout the
 semesters and internships. Feel free to use as you like.
 
-Disclaimer: Despite the unit tests done, some of them might contain bugs.
+Disclaimer: Despite the Unit tests done, some of them might still contain bugs.
 
-## Found a bug?
- * Clone/fork and send a pull request. 
+## Speaking of which, foun one?
+ * Clone or fork and send me a pull request, thanks!

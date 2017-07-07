@@ -2,6 +2,8 @@ import sys
 sys.path.append('..')
 
 import unittest
+import tkinter
+import matplotlib.pyplot as plt
 from cluster.dbscan.Point import Point
 from cluster.dbscan.DBScan import DBScan
 
@@ -21,10 +23,8 @@ class TestDBScan(unittest.TestCase):
         points = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10]
         self._dbscan = DBScan(points, 2.5, 2)
     
-    def testing_dbscan(self):
-        for p in self._dbscan.get_points():
-            print(p.get_values()," = ", p.get_cluster())
-        self.assertEqual(len(self._dbscan.get_points()), 10) 
-
+    def testing_dbscan(self):         
+        self.assertEqual(len(self._dbscan.get_clusters()), 1) 
+    
 if __name__ == "__main__":
     unittest.main()

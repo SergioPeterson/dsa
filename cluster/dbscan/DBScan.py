@@ -1,10 +1,20 @@
 from cluster.dbscan.Point import Point
 from math import sqrt
 
+
 class DBScan:
 
-
     def __init__(self, points, eps, min_points):
+       """
+       DBScan is initialized by passing a list of points, the eps, and
+       a minimum number of points per cluster.
+       
+       Args:
+            param1: The dataset of points to be analyzed
+            param2: The eps neighborhood of a point
+            param3: The minimum number of elements per cluster.
+        """
+        
         self._points = points
         self._clusters = 0 # initial clusters
         for point in self._points:
@@ -20,6 +30,16 @@ class DBScan:
                                     self._clusters, eps, min_points)
     def expand_cluster(self, point, neighbors_points, 
                                     cluster, eps, min_points):
+        """
+        This method is resposible for expanding the neighbors of a point.
+        
+        Args:
+            param1: Point itself
+            param2: The actual cluster being of that points
+            param3: The eps neighborhood of a point
+            param4: The minimum number of elements per cluster 
+        """
+        
         point.set_cluster(cluster)
         for p in neighbors_points:
             if not p.is_visited():
@@ -31,6 +51,15 @@ class DBScan:
                 p.set_cluster(cluster)
 
     def find_neighbours(self, point, eps):
+        """
+        This method is resposible for finding the neighbors of a points. 
+        The metric being used is the Euclidean distance. 
+        
+        Args:
+            param1: Point itself
+            param2: The eps neighborhood of a point
+        """
+        
         x, y = point.get_values()
         neighbors = []
         for p in self._points:
@@ -42,6 +71,11 @@ class DBScan:
         return neighbors
     
     def get_clusters(self):
+        """
+        This method is resposible for returning the clusters found, and their
+        respective elements.
+        """
+
         clusters = [[] for i in range(0, self._clusters)]
         for point in self._points:
             #print(point.get_values(), " = ", point.get_cluster())

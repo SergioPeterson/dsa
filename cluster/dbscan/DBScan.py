@@ -28,11 +28,12 @@ class DBScan:
                 self._clusters = self._clusters + 1
                 self.expand_cluster(point, neighbors_point, 
                                     self._clusters, eps, min_points)
+    
     def expand_cluster(self, point, neighbors_points, 
                                     cluster, eps, min_points):
         """
         This method is resposible for expanding the neighbors of a point.
-        
+    
         Args:
             param1: Point itself
             param2: The actual cluster being of that points
@@ -78,7 +79,6 @@ class DBScan:
 
         clusters = [[] for i in range(0, self._clusters)]
         for point in self._points:
-            #print(point.get_values(), " = ", point.get_cluster())
             if (point.get_cluster() != -1):
                 clusters[point.get_cluster() - 1].append(point)
         return clusters

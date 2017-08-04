@@ -1,7 +1,7 @@
 
-import trees.BstNode as Node
+import trees.BinarySearchTreeNode as Node
 
-class Bst:
+class BinarySearchTree:
 
     def __init__(self):
         """
@@ -20,7 +20,7 @@ class Bst:
             TypeError: key is not a valid integer
         """
         try:
-            node = Node.BstNode(key)  # a newborn node
+            node = Node.BinarySearchTreeNode(key)  # a newborn node
 
             correctPosition = None
             i = self._root
@@ -77,7 +77,7 @@ class Bst:
         
             if root is not None:
                 return root
-            return Node.BstNode(None)
+            return Node.BinarySearchTreeNode(None)
         except TypeError:
             pass
 
@@ -193,7 +193,7 @@ class Bst:
         try:
             node = self.search(key)
             if node._key is None:
-                return Node.BstNode(None)
+                return Node.BinarySearchTreeNode(None)
         
             # leaf case
             if node._left is None and node._right is None:
@@ -222,4 +222,4 @@ class Bst:
         except TypeError:
             pass
 
-# Bst.py
+# BinarySearchTree.py

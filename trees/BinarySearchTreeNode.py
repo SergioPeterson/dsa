@@ -1,5 +1,5 @@
 
-class BstNode:
+class BinarySearchTreeNode:
 
     def __init__(self, key):
         self._key = key
@@ -14,4 +14,4 @@ class BstNode:
     def __set__(self, key):
         self._key = key
 
-# BstNode.py
+# BinarySearchTreeNode.py

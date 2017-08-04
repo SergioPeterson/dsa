@@ -2,13 +2,13 @@ import sys
 sys.path.append('..')
 
 import unittest
-from trees.Bst import Bst
+from trees.BinarySearchTree import BinarySearchTree
 
 class TestBst(unittest.TestCase):
     
 
     def setUp(self):
-        self.bst = Bst()
+        self.bst = BinarySearchTree()
         self.bst.insert(5)
         self.bst.insert(6)
         self.bst.insert(4)

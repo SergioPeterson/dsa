@@ -18,13 +18,12 @@ class InsertionSort:
         """
         naive insertion sort
         """
-        sorted_numbers = []
-        for n in self._numbers:
-            pos = 0
-            l = len(sorted_numbers) - 1
-            while l >= 0:
-                if sorted_numbers[l] < n:
-                    pos = l + 1
-                l = l - 1
-            sorted_numbers.insert(pos, n)
-        return sorted_numbers
+        l = len(self._numbers)
+        for i in range(1, l):
+            current = self._numbers[i]
+            j = i - 1
+            while j >= 0 and current < self._numbers[j]:
+                self._numbers[j + 1] = self._numbers[j]
+                j = j - 1
+            self._numbers[j + 1] = current
+        return self._numbers

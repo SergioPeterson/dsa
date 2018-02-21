@@ -1,9 +1,9 @@
-Data Structure and Algorithms in Python
+# Data Structure and Algorithms in Python
+This repo has a collection of data structures and algorithms implemented in Python. Feel free to submit a contribuiton.
 
-Some DSs and Algoritmos I implemented for fun.
+## Contributions
+* All code needs to be implemented in Python 3
+* You can clone or fork this repo
 
-Disclaimer
-Feel free to use it as you like, but keep in mind that bugs might be discovered. 
-I do not hold any resposanbility for eventual problems you might encounter. 
-
-If you want to imporove, send me a pull request!
+## License
+MIT :)
